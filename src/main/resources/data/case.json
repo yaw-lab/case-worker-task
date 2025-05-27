@@ -1,0 +1,17 @@
+[
+  {
+
+    "caseNumber":"C100",
+    "title": "Initial Case",
+    "description":"This is the first test case.",
+    "status": "OPEN"
+  },
+  {
+
+    "caseNumber":"C102",
+    "title": "Initial Case Next",
+    "description":"This is the Second test case.",
+    "status": "OPEN"
+
+  }
+]
