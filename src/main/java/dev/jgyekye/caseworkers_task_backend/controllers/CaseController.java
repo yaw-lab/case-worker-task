@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 
-@RestController // This activates the /cases base path
+@RestController
 @RequestMapping("/cases")
 public class CaseController {
 
@@ -21,8 +21,6 @@ public class CaseController {
 
     @PostMapping
     public ResponseEntity<Case> createCase(@RequestBody Case newCase) {
-        System.out.println("Received: ********** XXXXXXXXXXXXXXXXXX ");
-        System.out.println("Received: ********** XXXXXXXXXXXXXXXXXXXXXXXXXXXXX" + newCase.toString());
         Case savedCase = repository.save(newCase);
         return ResponseEntity.ok(savedCase);
     }
