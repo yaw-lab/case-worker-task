@@ -2,8 +2,9 @@ package dev.jgyekye.caseworkers_task_backend.models;
 
 import jakarta.persistence.*;
 import lombok.*;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.*;
-
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -11,8 +12,7 @@ import java.time.LocalDateTime;
 @Table(name = "cases")
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
+@Data
 public class Case {
 
     @Id
@@ -32,22 +32,8 @@ public class Case {
     @Column(nullable = false)
     private String status;
 
+    @CreationTimestamp
+    @Column(nullable = false, updatable = false)
+    @Schema(description = "Timestamp when the case was created", example = "2024-05-28T10:30:00")
     private LocalDateTime createdDate;
-
-    @PrePersist
-    public void onCreate() {
-        this.createdDate = LocalDateTime.now();
-    }
-
-    @Override
-    public String toString() {
-        return "ExampleCase{" +
-                "id=" + id +
-                ", caseNumber='" + caseNumber + '\'' +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", status='" + status + '\'' +
-                ", createdDate=" + createdDate +
-                '}';
-    }
 }
